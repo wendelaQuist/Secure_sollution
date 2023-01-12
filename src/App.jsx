@@ -9,10 +9,7 @@ const App = () => {
 	const uploadFile = (e) => {
 		e.preventDefault();
 
-		let formData = new FormData();
-		formData.append('file', file);
-
-		axios.post(apiUrl + "/" + file.name, formData).then(response => {
+		axios.post(apiUrl + "/upload/" + file.name, file).then(response => {
 			console.log(response.data);
 		})
 	}
