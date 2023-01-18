@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
 import apiUrl from "./constants";
-import getResult from "./lib.js"
+import getResult from "./lib.js";
+import './App.css';
 
 const App = () => {
 	const [pythonFile, setPythonFile] = useState();
@@ -45,13 +46,20 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+			<head>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+			</head>
+			<div className="body">
+				<div className="drag-area">
+				<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
 			<header><h1>File Upload</h1></header>
 			<form method="post" encType="multipart/form-data">
 				<input type="file" name="python-file" onChange={handlePythonFileChange}/>
 				<input type="file" name="args-file" onChange={handleArgsFileChange}/>
 				<input type="submit" value="Upload" onClick={uploadFile} />
 			</form>
+				</div>
+			</div>
 		</div>
 	);
 }
